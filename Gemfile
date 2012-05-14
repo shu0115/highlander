@@ -49,8 +49,8 @@ gem 'kaminari'
 gem 'omniauth-twitter'
 gem 'twitter'
 
-#group :development do
+group :development do
   gem 'omniauth-scaffold'
   gem 'custom-template'
-#end
+end
 
