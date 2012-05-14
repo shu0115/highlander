@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= APP_NAME %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <%# 文字数カウント %>
+  <script type="text/javascript">
+  <!--
+    function str_count(str){
+      var hash_tag = document.getElementById('hash_tag').innerHTML
+      var val = str.replace(/\r\n/g, " ");
+
+      document.getElementById('str_length').innerText = hash_tag.length + val.length + 1 + "文字";
+      document.getElementById('str_length').textContent = hash_tag.length + val.length + 1 + "文字"; // Firefox用
+    }
+  //-->
+  </script>
+</head>
+<body>
+
+<%# ----- 追加 ----- %>
+<% if current_user %>
+  <%# ログイン済み %>
+  <%= link_to_unless( current_user.screen_name.blank?, image_tag( current_user.image, size: "20x20" ), "https://twitter.com/#!/#{current_user.screen_name}", target: "_blank" ) %>
+  <%= current_user.name %>
+   | <%= link_to "Logout" , logout_path %>
+<% else %>
+  <%# 未ログイン %>
+  <%#= link_to "Login", "/auth/#{DEFAULT_PROVIDER}" %>
+<% end %>
+
+<%# 通知／エラーメッセージ %>
+<%= simple_format( flash[:notice], style: "color: green;" ) unless flash[:notice].blank? %>
+<%= simple_format( flash[:alert], style: "color: red;" ) unless flash[:alert].blank? %>
+<%# ----- ／追加 ----- %>
+
+<%= yield %>
+<br />
+<br />
+
+<center>
+  Developed by <a href="https://twitter.com/#!/shu_0115/" target="_blank">shu_0115</a>,
+  Licence by <a href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/" target="_blank">CC BY-NC-SA 2.1</a>
+</center>
+
+</body>
+</html>

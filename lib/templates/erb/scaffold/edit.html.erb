@@ -1,0 +1,7 @@
+
+<h1>Editing <%= singular_table_name %></h1>
+
+<%%= render 'form' %>
+
+<%%= link_to t( "menu.show", default: "Show" ), action: "show", id: @<%= singular_table_name %>.id %>
+ | <%%= link_to t( "menu.list", default: "List" ), action: "index" %>

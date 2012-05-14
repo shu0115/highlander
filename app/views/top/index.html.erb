@@ -1,0 +1,39 @@
+
+<% if flash[:notice].blank? and flash[:alert].blank? %>
+<br />
+<br />
+<% end %>
+
+<center>
+
+  <h1>Welcome, <%= APP_NAME %>.</h1>
+
+  <br />
+  
+  <% if session[:user_id].blank? %>
+    <%= simple_format( "Please Login.", style: "color: blue; font-size: 18px;" ) %>
+    <br />
+    <%= link_to "Login", "/auth/#{DEFAULT_PROVIDER}" %>
+  <% elsif @members.index( current_user.screen_name ) %>
+    <%# Tweet作成フォーム %>
+    <%= form_for :tweet, url: { action: 'create' } do |f| %>
+      <%# 投稿テキストエリア %>
+      <span class="field">
+        <%= f.text_area :post, rows: "5", cols: "50", onKeyup: "str_count(value);" %>
+      </span>
+      
+      <br />
+    
+      <%# 文字数カウント %>
+      <span id="hash_tag"><%= @hash_tag %></span> <span id="str_length"><%= @str_count %>文字</span><br />
+      
+      <br />
+      
+      <%# Postボタン %>
+      <span class="actions"><%= f.submit "意識高いツイート", disable_with: "意識高いツイート" %></span><br />
+    <% end %>
+  <% else %>
+    <%= simple_format( "You are not a Member.", style: "color: red; font-size: 18px;" ) %>
+  <% end %>
+
+</center>
