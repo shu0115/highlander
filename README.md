@@ -1,18 +1,18 @@
-# APP_NAME
+# Highlander
 
-APP_DESCRIPTION.
+The Highlander.
 
 ## Local Setting
 
 ### GitHub上でFork
 
-    https://github.com/USER_NAME/APP_NAME/
+    https://github.com/shu_0115/highlander/
 
 ### リポジトリをローカルへ作成
 
     $ cd ~/WORK_DIRECTORY
-    $ git clone git@github.com:YOUR_USER_NAME/APP_NAME.git
-    $ cd APP_NAME
+    $ git clone git@github.com:YOUR_USER_NAME/highlander.git
+    $ cd highlander
 
 ### ブランチ作成
 
@@ -61,4 +61,4 @@ Gemインストール
 
 ## Copyright
 
-Copyright (c) 2012 MY_NAME. <a href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/" target="_blank">CC BY-NC-SA 2.1</a>
+Copyright (c) 2012 Shun Matsumoto <a href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/" target="_blank">CC BY-NC-SA 2.1</a>

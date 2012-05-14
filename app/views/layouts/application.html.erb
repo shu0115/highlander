@@ -31,10 +31,6 @@
   <%# 未ログイン %>
   <%#= link_to "Login", "/auth/#{DEFAULT_PROVIDER}" %>
 <% end %>
-
-<%# 通知／エラーメッセージ %>
-<%= simple_format( flash[:notice], style: "color: green;" ) unless flash[:notice].blank? %>
-<%= simple_format( flash[:alert], style: "color: red;" ) unless flash[:alert].blank? %>
 <%# ----- ／追加 ----- %>
 
 <%= yield %>

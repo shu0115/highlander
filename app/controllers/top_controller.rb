@@ -48,6 +48,7 @@ class TopController < ApplicationController
     @tweet = Tweet.new
     @hash_tag = HASH_TAG
     @str_count = @hash_tag.length + 1
+    @members = MEMBERS.split(",")
     
     render action: "index" and return
   end

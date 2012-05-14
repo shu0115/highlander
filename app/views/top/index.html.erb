@@ -8,7 +8,13 @@
 
   <h1>Welcome, <%= APP_NAME %>.</h1>
 
-  <br />
+  <% if flash[:notice].blank? and flash[:alert].blank? %>
+    <br />
+  <% else %>
+    <%# 通知／エラーメッセージ %>
+    <%= simple_format( flash[:notice], style: "color: green;" ) unless flash[:notice].blank? %>
+    <%= simple_format( flash[:alert], style: "color: red;" ) unless flash[:alert].blank? %>
+  <% end %>
   
   <% if session[:user_id].blank? %>
     <%= simple_format( "Please Login.", style: "color: blue; font-size: 18px;" ) %>
