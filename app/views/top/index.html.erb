@@ -38,6 +38,37 @@
       <%# Postボタン %>
       <span class="actions"><%= f.submit "意識高い高〜い", disable_with: "意識高い高〜い" %></span><br />
     <% end %>
+
+    <br />
+    <%# Twitterウィジェット%>
+    <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+    <script>
+    new TWTR.Widget({
+      version: 2,
+      type: 'profile',
+      rpp: 10,
+      interval: 30000,
+      width: 350,
+      height: 200,
+      theme: {
+        shell: {
+          background: '#333333',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#000000',
+          color: '#ffffff',
+          links: '#00ffea'
+        }
+      },
+      features: {
+        scrollbar: true,
+        loop: false,
+        live: true,
+        behavior: 'all'
+      }
+    }).render().setUser('ishikitakai').start();
+    </script>
   <% else %>
     <%= simple_format( "You are not a Member.", style: "color: red; font-size: 18px;" ) %>
   <% end %>
