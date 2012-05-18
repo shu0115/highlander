@@ -14,11 +14,11 @@
 
 <%# 検索フォーム %>
 <%= form_tag( action: "chat" ) do %>
-	<%= text_field_tag( :word ) %>
-	<%= submit_tag( "POST", disable_with: "POST" ) %>
+	<p><%= text_field_tag( :word, "", { size: 35 } ) %></p>
+	<p><%= submit_tag( "POST", disable_with: "POST" ) %></p>
 <% end %>
 
-<br /><br />
+<br />
 
 <span id="get_text"><%= @word %></span><br />
 
