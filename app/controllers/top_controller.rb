@@ -57,7 +57,8 @@ class TopController < ApplicationController
   # chat #
   #------#
   def chat
-    Pusher['test_channel'].trigger( 'test_event', { test_text: params[:text] } )
+    @word = params[:word]
+    Pusher['word_channel'].trigger( 'word_event', { word: @word } )
   end
   
 end

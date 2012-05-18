@@ -1,15 +1,26 @@
 <script src="http://js.pusher.com/1.11/pusher.min.js"></script>
 <script type="text/javascript">
   var pusher = new Pusher('<%= Pusher.key %>'); // uses your API KEY
-  var channel = pusher.subscribe('test_channel');
+  var channel = pusher.subscribe('word_channel');
 
-  channel.bind( 'test_event', function(data){
-    document.getElementById('get_text').innerText = data.test_text;
+  channel.bind( 'word_event', function( data ){
+    document.getElementById('get_text').innerText   = data.word;
+    document.getElementById('get_text').textContent = data.word;  // Firefox用
   } );
 </script>
 
+<center>
+<br /><br /><br />
+
+<%# 検索フォーム %>
+<%= form_tag( action: "chat" ) do %>
+	<%= text_field_tag( :word ) %>
+	<%= submit_tag( "POST", disable_with: "POST" ) %>
+<% end %>
+
 <br /><br />
 
-<span id="get_text">TEST</span><br />
+<span id="get_text"><%= @word %></span><br />
 
 <br /><br />
+</center>
