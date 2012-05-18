@@ -53,4 +53,11 @@ class TopController < ApplicationController
     render action: "index" and return
   end
   
+  #------#
+  # chat #
+  #------#
+  def chat
+    Pusher['test_channel'].trigger( 'test_event', { test_text: params[:text] } )
+  end
+  
 end

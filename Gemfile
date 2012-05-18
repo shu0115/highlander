@@ -54,3 +54,5 @@ group :development do
   gem 'custom-template'
 end
 
+# For Pusher
+gem 'pusher'

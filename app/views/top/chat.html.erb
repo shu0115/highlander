@@ -1,0 +1,15 @@
+<script src="http://js.pusher.com/1.11/pusher.min.js"></script>
+<script type="text/javascript">
+  var pusher = new Pusher('<%= Pusher.key %>'); // uses your API KEY
+  var channel = pusher.subscribe('test_channel');
+
+  channel.bind( 'test_event', function(data){
+    document.getElementById('get_text').innerText = data.test_text;
+  } );
+</script>
+
+<br /><br />
+
+<span id="get_text">TEST</span><br />
+
+<br /><br />

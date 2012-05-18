@@ -35,4 +35,11 @@ Highlander::Application.configure do
   # Expands the lines which load the assets
 #  config.assets.debug = true
   config.assets.debug = false
+
+  # For Pusher
+  require 'pusher'
+  
+  Pusher.app_id = '20717'
+  Pusher.key    = '2558740a1983a75d573a'
+  Pusher.secret = 'c18a10d99f6f5ff6c8a4'
 end
